@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../css/design.css">
+    <script src="../js/user.js"></script>
+    <title>Login Page</title>
+</head>
+<body>
+    <h2>Login Page</h2>
+    <table>
+        <tr>
+            <td>Userid</td>
+            <td><input id="userid" type="text" placeholder="Type Userid Here" autofocus><span id="useriderror" class="error">&nbsp;&nbsp;</span></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input id="pwd" type="password" placeholder="Type Password Here" ><span class="error" id="pwderror"></span></td>
+        </tr>
+        <tr>
+            <td><button onclick="validate()">Login</button></td>
+            <td><button>Clear</button></td>
+        </tr>
+    </table>
+</body>
+</html>
