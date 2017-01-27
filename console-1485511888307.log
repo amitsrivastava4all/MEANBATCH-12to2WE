@@ -1,0 +1,268 @@
+var a = 10;
+undefined
+typeof a;
+"number"
+a=10.20;
+10.2
+typeof a;
+"number"
+a = "amit";
+"amit"
+typeof a;
+"string"
+a='amit';
+"amit"
+typeof a;
+"string"
+a =true;
+true
+typeof a;
+"boolean"
+a = [];
+[]
+typeof a;
+"object"
+a instanceof Array;
+true
+a={};
+Object {}
+typeof a;
+"object"
+a instanceof Array;
+false
+a instanceof Object;
+true
+typeof Array;
+"function"
+a=[];
+[]
+class TT{ }
+class TT{ }
+typeof TT;
+"function"
+function add(x,y){
+return x + y;
+}
+undefined
+typeof add;
+"function"
+add(100,200);
+300
+function Employee(id , name){
+this.id = id;
+this.name = name;
+}
+undefined
+typeof Employee;
+"function"
+var ram= new Employee(1001,"Ram");
+undefined
+typeof ram;
+"object"
+ram instanceof Employee;
+true
+var e;
+undefined
+typeof e;
+"undefined"
+e=1000;
+1000
+typeof e;
+"number"
+e="Hello";
+"Hello"
+typeof e;
+"string"
+int tt;
+VM658:1 Uncaught SyntaxError: Unexpected identifier
+var y ;
+undefined
+typeof y;
+"undefined"
+var t = 100;
+undefined
+var t2 = "200";
+undefined
+typeof t;
+"number"
+typeof t2;
+"string"
+t + t2;
+"100200"
+t - t2;
+-100
+"ram"-200;
+NaN
+t;
+100
+t2;
+"200"
+t="100";
+"100"
+t-t2;
+-100
+t*t2;
+20000
+t;
+"100"
+t2;
+"200"
+t/t2;
+0.5
+t="ram";
+"ram"
+t/t2;
+NaN
+var  p = t/t2;
+undefined
+p;
+NaN
+pp = 1000;
+1000
+pp;
+1000
+typeof p;
+"number"
+p = 1000/ 0;
+Infinity
+p;
+Infinity
+typeof p;
+"number"
+p ="100";
+"100"
+p1=100;
+100
+p == p1;
+true
+p===p1
+false
+function show(){
+console.log("This is the Show Function ");
+}
+undefined
+typeof show;
+"function"
+show();
+VM1084:2 This is the Show Function 
+undefined
+var r = show;
+undefined
+typeof r;
+"function"
+r;
+function show(){
+console.log("This is the Show Function ");
+}
+r();
+VM1084:2 This is the Show Function 
+undefined
+function add(x,y){
+return x + y;
+}
+undefined
+typeof console;
+"object"
+var x = 100;
+undefined
+var y = 20;
+undefined
+add(x,y);
+120
+function evenOdd(x){
+if(x%2==0){
+console.log("Even No ",x);
+}
+else{
+console.log("Odd No ",x);
+}
+}
+undefined
+function myTable(x,y){
+console.log(x*y);
+}
+undefined
+evenOdd(10);
+VM1422:3 Even No  10
+undefined
+myTable(5,1);
+VM1478:2 5
+undefined
+myTable(5,2);
+VM1478:2 10
+undefined
+function commonLoop(flag){
+for(var i = 1; i<=10 ;i++){
+if(flag == 1){
+evenOdd(i);
+}
+else{
+myTable(5,i);
+}
+}
+}
+undefined
+commonLoop(1);
+VM1422:6 Odd No  1
+VM1422:3 Even No  2
+VM1422:6 Odd No  3
+VM1422:3 Even No  4
+VM1422:6 Odd No  5
+VM1422:3 Even No  6
+VM1422:6 Odd No  7
+VM1422:3 Even No  8
+VM1422:6 Odd No  9
+VM1422:3 Even No  10
+undefined
+commonLoop(2);
+VM1478:2 5
+VM1478:2 10
+VM1478:2 15
+VM1478:2 20
+VM1478:2 25
+VM1478:2 30
+VM1478:2 35
+VM1478:2 40
+VM1478:2 45
+VM1478:2 50
+undefined
+function commonLoopV2(fn){
+for(var i = 1; i<=10; i++){
+fn(i);
+}
+}
+undefined
+function myTable(y){
+console.log(5*y);
+}
+undefined
+commonLoopV2(evenOdd);
+VM1422:6 Odd No  1
+VM1422:3 Even No  2
+VM1422:6 Odd No  3
+VM1422:3 Even No  4
+VM1422:6 Odd No  5
+VM1422:3 Even No  6
+VM1422:6 Odd No  7
+VM1422:3 Even No  8
+VM1422:6 Odd No  9
+VM1422:3 Even No  10
+undefined
+undefined + undefined
+NaN
+add(100,200);
+300
+add(100);
+NaN
+100 + undefined
+NaN
+add();
+NaN
+add(100,200,300,400,500);
+300
+a=1000;
+1000
+a=2000;
+2000
+a;
+2000
