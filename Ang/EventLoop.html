@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    function start(){
+        console.log("Start Call ");
+    }
+    function end(){
+        console.log("End call");
+    } 
+    function loopIt(){
+        console.log("Loop It")
+        for(var i = 1; i<=100000; i++){
+            for(var j = 1; j<=100000; j++){
+                
+            }
+        }
+    } 
+    function process(){
+        start();
+        setTimeout(loopIt,5000);
+        end();
+    } 
+        process();
+    function sayHello(){
+        console.log("Hello Call....");
+    }    
+    </script>
+</head>
+<body>
+   <button onclick="sayHello()">Click</button>
+    
+</body>
+</html>

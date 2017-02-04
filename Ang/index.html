@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular First Example</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="angular.min.js"></script>
+</head>
+<body ng-app>
+   <div class="{{mystyle}}">
+   <input type="text" ng-model="mystyle" placeholder="Type Style">
+    <input type="text" ng-model="myvar">
+    <h1>Your Name is {{myvar}}</h1>
+    <br>
+    <input type="text" placeholder="Type Quantity" ng-model="qt" ng-init="qt=0">
+    <input type="text" placeholder="Type Rate" ng-model="rate" ng-init="rate=0">
+    Amount is {{qt*rate}}
+    </div>
+</body>
+</html>
