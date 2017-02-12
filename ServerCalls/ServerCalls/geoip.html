@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Server Calls</title>
+    <script src="angular.min.js"></script>
+    <script>
+        var url = 'https://freegeoip.net/';
+        var app =angular.module("myapp",[]);
+        app.controller("myctrl",function($scope,myfactory){
+            $scope.searchHost=function(){
+            var promise = myfactory.callServer($scope.format,$scope.hostname);
+            for(var i = 1 ; i<=1000; i++){
+                console.log("My Logic Going ON");
+            }
+            // Now Checking Promise is Done Or Not
+            promise.then(function(data){
+                console.log("Sucess Promise Done....");
+                $scope.result= data.data;
+            },function(error){
+                console.log("Failure Promise Done...");
+                $scope.error = error;
+            });    
+            }
+            
+        });
+        app.factory("myfactory",function($http,$q){
+            var object = {};
+            
+            object.callServer=function(type,hostname){
+                var result ;
+                var pr = $q.defer();
+                console.log("Doing the Server Call....");
+                $http.get(url+type+"/"+hostname).then(function(data){
+                    console.log("Success Comes...",data); 
+                    pr.resolve(data);
+                    //result = data;
+                },function(error){
+                    pr.reject(error);
+                    //result = error;
+                    console.log("Error Comes...");
+                });
+                console.log("Going out of this Factory...",result);
+                return pr.promise;
+            }
+            return object;
+        })
+    </script>
+</head>
+<body ng-app="myapp" ng-controller="myctrl">
+ <select ng-model="format">
+     <option>json</option>
+     <option>xml</option>
+ </select>
+  <input type="text" ng-model="hostname" placeholder="Type the Host Name e.g. google.com" ng-change="searchHost()">
+  <h2>{{hostname}} &nbsp; I.P is {{result.ip}} Country {{result.country_name}} </h2>
+ {{result}}
+</body>
+</html>
