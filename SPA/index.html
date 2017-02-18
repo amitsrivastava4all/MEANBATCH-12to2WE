@@ -1,0 +1,37 @@
+<html>
+<head>
+   <link rel="stylesheet" href="css/design.css">
+    <script src="js/libs/angular.min.js"></script>
+</head>
+<body ng-app>
+  Sort 
+  <select ng-model="sortBy">
+      <option>id</option>
+       <option>name</option>
+        <option>salary</option>
+  </select>
+  Selected is {{sortBy}}
+  <br>
+  <input type="checkbox" ng-model="rev">Reverse Order {{rev}}
+   <input type="text" ng-model="myobject.id" placeholder="Type Id Here to Search">
+   <input type="text" ng-model="myobject.salary" placeholder="Type Salary Here to Search">
+    <ul ng-init="emplist=[
+       {id:1001,name:'Ram',salary:9999},
+       {id:1002,name:'Shyam',salary:99999},
+       {id:1003,name:'Amit',salary:889999},
+       {id:1010,name:'anil',salary:69999},
+       {id:1000,name:'Ajay',salary:19999},
+       {id:1009,name:'Mike',salary:49999},
+       {id:1111,name:'Tim',salary:39999},
+       {id:1101,name:'Kim',salary:29999},
+       {id:1221,name:'Rim',salary:19999}
+       
+       
+       ]" ng-model="emplist">
+        <li ng-repeat="obj in emplist|filter:myobject|limitTo:2|orderBy:sortBy:rev" >
+           <span ng-class-even="'green'" ng-class-odd="'red'">{{obj.id}} {{obj.name|uppercase}} {{obj.salary|currency}}</span>
+            <!--<span ng-class="{'red':obj.salary<19999,'green':obj.salary>=19999}">{{obj.id}} {{obj.name|uppercase}} {{obj.salary|currency}}</span>-->
+        </li>
+    </ul>
+</body>
+</html>
