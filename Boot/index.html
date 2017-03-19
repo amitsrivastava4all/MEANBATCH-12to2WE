@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body ng-app="myapp">
+	<h1>Controller Data Sharing</h1>
+	<div ng-controller="ctrl">
+		First Controller{{firstName}}
+		
+	</div>
+	<div ng-controller="ctrl2">
+		Second Controller {{firstName}} &nbsp;{{lastName}} &nbsp; {{city}} &nbsp;  {{age}}
+	</div>
+</body>
+</html>
