@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="01-Custom/custom.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="01-Custom/jquery-1.11.3.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="01-Custom/angular.min.js"></script>
+	<script src="01-Custom/directivedemo.js"></script>
+</head>
+<body ng-app="myapp">
+	<div ng-controller="myctrl">
+	<h1 jqueryuse>Name is {{firstName}}</h1>
+		<name-directive></name-directive>
+	</div>
+	<div ng-controller="myctrl2">
+		<name-directive></name-directive>
+	</div>
+	<h1>Directive with Ctrl</h1>
+	<elementlevel mydata="Hello"></elementlevel>
+	<br>
+	Links Are
+	<printlinks link1="http://www.google.com" link2="http://www.gmail.com"></printlinks>
+	
+	<h1 class="classlevel">this is test of class level</h1>
+	<dialog title= "this is my dialog" content="this is my content"></dialog>
+	
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="p5.min.js"></script>
+	<script>
+	function setup(){
+		document.getElementById("speakNow").addEventListener("click",speakNow); 
+		
+	}
+		var recognition ;
+		function speakNow(){
+			
+			recognition= new webkitSpeechRecognition();
+			recognition.continuous = false;
+			recognition.interimResults = false;
+			recognition.lang = "en-US";
+			recognition.onresult = function(event) { 
+			var text = event.results[0][0].transcript;	
+  			console.log('You said: ', event.results[0][0].transcript);
+//				recognition.stop();
+//				if(!makeACall){
+				callServer(text);
+//				}
+//				makeACall= true;
+			}
+			recognition.onspeechend = function() {
+  				
+						//alert('thanks for Speaking..');
+			}
+			recognition.start();
+		}
+		function callServer(text){
+			var url = "http://api.wordnik.com/v4/word.json/"+text+"/relatedWords?useCanonical=false&limitPerRelationshipType=10&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5";
+			loadJSON(url,done);
+		}
+		function done(data){
+			console.log("Done....");
+			var msgData = "";
+			var wordsArray=[];
+			data.forEach(function(object){
+				if(object.relationshipType=="synonym"){
+					wordsArray = object.words;
+					console.log("Inside If ");
+					object.words.forEach(function(word){
+						msgData = msgData + word+" ,";
+					});
+				}
+			});
+			
+			console.log("Word Array  is ",wordsArray);
+			document.getElementById("result").innerHTML=msgData;
+			finalspeakNow(wordsArray);
+		}
+		
+		function finalspeakNow(wordsArray){
+			
+		//var msg = document.getElementById("mytxt").value;
+			recognition.stop();
+			wordsArray.forEach(function(msg){
+				var u = new SpeechSynthesisUtterance(msg);
+		   u.lang = 'en-US';
+     u.rate = 1.2;
+    speechSynthesis.speak(u);		
+			});
+		
+	}
+	</script>
+</head>
+<body>
+	<h1>Type Text</h1>
+	<button id="speakNow">Speak Now</button>
+	<h1 id="result"></h1>
+</body>
+</html>

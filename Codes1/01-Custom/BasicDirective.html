@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="angular.min.js">
+	</script>
+	<script>
+	var app = angular.module("myapp",[]);
+
+
+app.directive("tcsHeader",function(){
+    return {
+        template:"<h1>This is Page Header</h1>",
+        restrict:"E"  // Element Level, Attribute Level , Class Level, Comment Level
+    }
+});
+app.directive("tcsFooter",function(){
+    return {
+        template:"<h1>This is Page Footer</h1>",
+        restrict:"E"  // Element Level, Attribute Level , Class Level, Comment Level
+    }
+});		
+	</script>
+	
+</head>
+<body ng-app="myapp">
+	<tcs-header></tcs-header>
+	<h1>Body</h1>
+	<tcs-footer></tcs-footer>
+</body>
+</html>
