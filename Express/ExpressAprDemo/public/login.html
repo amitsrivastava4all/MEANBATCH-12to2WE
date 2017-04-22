@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/libs/angular.min.js"></script>
+	<script src="js/custom/config.js"></script>
+	<script src="js/custom/app.js"></script>
+	<script src="js/custom/model.js"></script>
+	<script src="js/custom/controller.js"></script>
+</head>
+<body ng-app="crudapp" ng-controller="crudctrl">
+	<h1>User CRUD Operations</h1>
+	<table>
+		<tr>
+			<td><label for="">Userid</label></td>
+			<td><input ng-model="user.userid" type="text" placeholder="Type Userid here"></td>
+		</tr>
+		<tr>
+			<td><label for="">Password</label></td>
+			<td><input ng-model="user.pwd" type="text" placeholder="Type Password here"></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<table>
+					<tr>
+						<td><button ng-click="addUser()">Add</button></td>
+						<td><button ng-click="searchUser()">Search</button></td>
+						<td><button>Update</button></td>
+						<td><button>Delete</button></td>
+						<td><button>Print All</button></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<h1>{{result}}</h1>
+</body>
+</html>
